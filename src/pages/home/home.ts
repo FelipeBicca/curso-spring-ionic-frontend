@@ -38,7 +38,7 @@ export class HomePage {
   }
 
   ionViewDidEnter(){
-    this.auth.refreshToken(this.creds)
+    this.auth.refreshToken()
     .subscribe(response => {
       this.auth.sucessfullLogin(response.headers.get('Authorization'));
       this.navCtrl.setRoot("CategoriasPage");
