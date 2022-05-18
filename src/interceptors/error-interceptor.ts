@@ -1,5 +1,5 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable } from "rxjs/Rx";
 
 export class ErrorInterceptor implements HttpInterceptor{
 
