@@ -9,7 +9,6 @@ import { StorageService } from "../storage.service";
 export class ClienteService{
 
     constructor(public http: HttpClient, public storage: StorageService){
-
     }
 
     findByEmail(email: string): Observable<ClienteDTO>{
@@ -24,5 +23,16 @@ export class ClienteService{
     getImageFromBucket(id: string): Observable<any>{
         let url = `${API_CONFIG.BucketBaseUrl}/cp${id}.jpg`;
         return this.http.get(url, {responseType: 'blob'});
+    }
+
+    insert(obj: ClienteDTO){
+        console.log(`${API_CONFIG.baseUrl}/clientes`);
+        return this.http.post(`${API_CONFIG.baseUrl}/clientes`,
+            obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            } 
+        );
     }
 }
